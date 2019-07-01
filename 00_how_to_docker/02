@@ -1,0 +1,3 @@
+# 02. Get the IP adress of the Char virtual machine.
+
+docker-machine ip Char

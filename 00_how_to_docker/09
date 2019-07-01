@@ -1,0 +1,31 @@
+# 09. From the shell of a debian container, install via the container's package
+# manager everything you need to compile C source code and push it onto a git
+# repo (of course, make sure before that the package manager and the packages
+# already in the container are updated). For this exercise, you should only
+# specify the commands to be run directly in the container.
+
+apt-get update && apt-get -y upgrade
+apt-get install build-essential git
+
+# What I did to test this:
+#
+# mkdir repo && cd repo
+# git init
+# git config --global user.email "alanbarnett328@gmail.com"
+# git config --global user.name "Alan Barnett"
+# git remote add origin https://github.com/alan23394/docker_test
+# 
+# cat > main.c << EOF
+# #include <stdio.h>
+# int main()
+# {
+#     printf("In here!\n");
+#     return (0);
+# }
+# EOF
+# 
+# gcc main.c && ./a.out
+#
+# git add main.c
+# git commit main.c -m "simple test main"
+# git push origin master
