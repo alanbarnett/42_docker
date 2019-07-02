@@ -23,6 +23,10 @@ ENV TS3SERVER_LICENSE=accept
 # Run server on start
 ENTRYPOINT ["sh", "ts3server_minimal_runscript.sh"]
 
+# Resources:
+# https://docs.docker.com/samples/library/teamspeak/
+# https://www.hostinger.com/tutorials/how-to-make-a-teamspeak-3-server
+
 # To build and run:
 # docker build -t teamspeak .
 # docker run --rm -it -p 9987:9987/udp -p 10011:10011 -p 30033:30033 teamspeak
