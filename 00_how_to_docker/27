@@ -1,0 +1,7 @@
+# 27. Get the real-time logs of one of the tasks of the engineering-bay
+# service.
+
+# Resources:
+# https://docs.docker.com/engine/reference/commandline/service_logs/
+
+docker service logs $(docker service ps -q engineering-bay | head -n 1)
