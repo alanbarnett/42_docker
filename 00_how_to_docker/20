@@ -1,3 +1,6 @@
 # 20. Create a local swarm. the Char virtual machine should be its manager.
 
+# Resources:
+# https://docs.docker.com/get-started/part3/
+
 docker swarm init --advertise-addr $(docker-machine ip Char)
