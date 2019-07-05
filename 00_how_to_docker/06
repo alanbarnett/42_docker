@@ -4,4 +4,7 @@
 # functions properly by visiting http://$(docker ip Char):5000 on your web
 # browser.
 
+# Resources:
+# https://hub.docker.com/_/nginx
+
 docker run -d --name overlord --restart=always -p 5000:80 nginx

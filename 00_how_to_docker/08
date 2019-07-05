@@ -2,4 +2,7 @@
 # interact directly with the container via your terminal, and that the
 # container deletes itself once the shell's execution is done.
 
+# Resources:
+# https://docs.docker.com/engine/reference/run/
+
 docker run -it --rm alpine

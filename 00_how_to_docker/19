@@ -8,7 +8,7 @@
 # address of your virtual machine on the 3000 port.
 # You will also list all the necessary commands in your repository.
 
-# References:
+# Resources:
 # https://docs.docker.com/machine/reference/mount/
 # https://docs.docker.com/get-started/part2/
 # https://docs.docker.com/storage/bind-mounts/

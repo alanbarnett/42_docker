@@ -1,3 +1,6 @@
 # 23. Create an overlay-type internal network that you will name overmind.
 
+# Resources:
+# https://docs.docker.com/network/
+
 docker network create -d overlay overmind

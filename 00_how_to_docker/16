@@ -1,4 +1,7 @@
 # 16. Look up the spawning-pool container's logs in real time without running
 # its shell.
 
+# Resources:
+# https://docs.docker.com/engine/reference/commandline/logs/
+
 docker logs spawning-pool

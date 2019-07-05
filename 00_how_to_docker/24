@@ -2,6 +2,9 @@
 # define a specific user and password for the RabiitMQ service, they can be
 # whatever you want. This service will be on the overmind network.
 
+# Resources:
+# https://hub.docker.com/_/rabbitmq
+
 docker service create --name orbital-command --network overmind \
 	-e RABBITMQ_DEFAULT_USER=root -e RABBITMQ_DEFAULT_PASS=toor \
 	rabbitmq

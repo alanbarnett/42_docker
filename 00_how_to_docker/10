@@ -1,3 +1,6 @@
 # 10. Create a volume named hatchery.
 
+# Resources:
+# https://docs.docker.com/storage/volumes/
+
 docker volume create hatchery
