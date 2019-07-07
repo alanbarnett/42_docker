@@ -7,6 +7,7 @@
 # https://stackoverflow.com/questions/10175812/how-to-create-a-self-signed-certificate-with-openssl
 # https://www.shellhacks.com/create-csr-openssl-without-prompt-non-interactive/
 # https://docs.gitlab.com/ee/administration/restart_gitlab.html#omnibus-gitlab-reconfigure
+# https://gitlab.com/gitlab-org/omnibus-gitlab/issues/430
 
 FROM ubuntu:latest
 
