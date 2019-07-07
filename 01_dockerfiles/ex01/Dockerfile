@@ -1,3 +1,7 @@
+# Resources:
+# https://docs.docker.com/samples/library/teamspeak/
+# https://www.hostinger.com/tutorials/how-to-make-a-teamspeak-3-server
+
 FROM debian
 
 # Make sure everything is up to date, download necessary programs
@@ -22,10 +26,6 @@ ENV TS3SERVER_LICENSE=accept
 
 # Run server on start
 ENTRYPOINT ["sh", "ts3server_minimal_runscript.sh"]
-
-# Resources:
-# https://docs.docker.com/samples/library/teamspeak/
-# https://www.hostinger.com/tutorials/how-to-make-a-teamspeak-3-server
 
 # To build and run:
 # docker build -t teamspeak .
