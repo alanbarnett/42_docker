@@ -4,8 +4,10 @@
 
 FROM ruby
 
-# Make sure everything is up to date
-RUN apt-get update && apt-get -y upgrade
+# Make sure everything is up to date, download necessary programs
+RUN apt-get update && \
+	apt-get -y upgrade && \
+	apt-get -y install nodejs
 
 # Install rails
 RUN gem install rails
@@ -22,9 +24,8 @@ ONBUILD RUN bundle install
 
 # Migrate the database
 ONBUILD RUN rake db:migrate
+# Seed the new database
+ONBUILD RUN rake db:seed
 
-# Open up port 3000 for the program
-#ONBUILD EXPOSE 3000
-
-# Build this dockerfile with this command:
+# To build:
 # docker build -t ft-rails:on-build .
