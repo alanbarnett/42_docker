@@ -15,10 +15,12 @@
 
 FROM ubuntu:latest
 
-# Initial upgrade
-RUN apt-get update && apt-get -y upgrade
-# Get more dependencies
-RUN apt-get -y install curl ca-certificates openssh-server tzdata
+# Initial upgrade, and dependencies
+RUN apt-get update && apt-get -y upgrade && apt-get -y install \
+	curl \
+	ca-certificates \
+	openssh-server \
+	tzdata
 # Run script to set up repository, and get extra dependencies
 RUN curl -L https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | bash
 # Install gitlab-ce, now that the repo is set up properly
@@ -33,7 +35,16 @@ RUN openssl req \
 RUN mkdir -p /etc/gitlab/trusted-certs && \
 	chmod 700 /etc/gitlab/trusted-certs && \
 	mv gitlab.abarnett.com.key gitlab.abarnett.com.crt /etc/gitlab/trusted-certs
-# Tweak some settings for HTTPS
+
+# Set up sshd, with runit
+RUN mkdir -p /opt/gitlab/sv/sshd/supervise && \
+	mkfifo /opt/gitlab/sv/sshd/supervise/ok && \
+	printf "#!/bin/sh\nexec 2>&1\numask 077\nexec /usr/sbin/sshd -D\n" > /opt/gitlab/sv/sshd/run && \
+	chmod 755 /opt/gitlab/sv/sshd/run && \
+	ln -s /opt/gitlab/sv/sshd /opt/gitlab/service && \
+	mkdir -p /var/run/sshd
+
+# Tweak some settings for HTTPS and SSH
 RUN mv /etc/gitlab/gitlab.rb /etc/gitlab/gitlab.rb.orig
 COPY gitlab.rb /etc/gitlab/gitlab.rb
 
